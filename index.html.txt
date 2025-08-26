@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NetFlix Clone</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="login-container">
+    <h1>Logowanie</h1>
+    <input type="text" id="username" placeholder="Nazwa użytkownika">
+    <input type="password" id="password" placeholder="Hasło">
+    <select id="role">
+      <option value="user">Użytkownik</option>
+      <option value="premium">Premium</option>
+      <option value="admin">Administrator</option>
+    </select>
+    <button onclick="login()">Zaloguj</button>
+    <button onclick="showRegister()">Rejestracja</button>
+  </div>
+
+  <div id="register-container" style="display:none;">
+    <h1>Rejestracja</h1>
+    <input type="text" id="reg-username" placeholder="Nazwa użytkownika">
+    <input type="password" id="reg-password" placeholder="Hasło">
+    <select id="reg-role">
+      <option value="user">Użytkownik</option>
+      <option value="premium">Premium</option>
+    </select>
+    <button onclick="register()">Zarejestruj</button>
+    <button onclick="showLogin()">Powrót</button>
+  </div>
+
+  <div id="main-container" style="display:none;">
+    <header>
+      <h1>NetFlix Clone</h1>
+      <input type="text" id="search" placeholder="Szukaj filmów..." oninput="searchMovie()">
+      <button onclick="logout()">Wyloguj</button>
+    </header>
+
+    <nav>
+      <button onclick="showSection('movies')">Filmy</button>
+      <button onclick="showSection('series')">Seriale</button>
+      <button onclick="showSection('premium')">Premium</button>
+      <button id="adminPanelBtn" onclick="showSection('admin')" style="display:none;">Panel Admina</button>
+    </nav>
+
+    <section id="movies" class="content-section"></section>
+    <section id="series" class="content-section" style="display:none;"></section>
+    <section id="premium" class="content-section" style="display:none;"></section>
+    <section id="admin" class="content-section" style="display:none;"></section>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
